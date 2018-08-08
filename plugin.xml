@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="syn-enrollment-manager"
+        version="0.0.1"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0">
+
+    <name>EnrollmentManager</name>
+
+    <js-module name="EnrollmentManager" src="www/EnrollmentManager.js">
+        <clobbers target="EnrollmentManager" />
+    </js-module>
+
+    <platform name="ios">
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="EnrollmentManager">
+                <param name="ios-package" value="EnrollmentManager" onLoad="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/include/SynEnrollmentManager/AzureFunctionHelper.h"/>
+        <header-file src="src/ios/include/SynEnrollmentManager/ApiManager.h"/>
+        <header-file src="src/ios/include/SynEnrollmentManager/Enumerations.h"/>
+        <header-file src="src/ios/include/SynEnrollmentManager/Logger.h"/>
+        <header-file src="src/ios/include/SynEnrollmentManager/Settings.h"/>
+        <header-file src="src/ios/include/SynEnrollmentManager/EnrollmentEntry.h"/>
+        <header-file src="src/ios/include/SynEnrollmentManager/ACPTModel.h"/>
+        <header-file src="src/ios/include/SynEnrollmentManager/UICKeyChainStore.h"/>
+
+        <header-file src="src/ios/EnrollmentManager.h"/>
+        <source-file src="src/ios/EnrollmentManager.m"/>
+
+        <framework src="Security.framework" />
+        <source-file src="src/ios/libSynEnrollmentManager.a" framework="true" />
+
+    </platform>
+
+</plugin>
